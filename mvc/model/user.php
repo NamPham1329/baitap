@@ -40,6 +40,12 @@ class user extends DB{
             }
         }
     }
+    public function logout(){
+        if(!empty($_POST['logout'])){
+            unset($_SESSION['users']);
+            header('Location: /baitap/home/login');
+        }
+    }
     
 }
 ?>

@@ -62,14 +62,24 @@
 			"type"=>$this->product->delete(),
 			]);
         }
+		public function get_product_by_id(){
+			$this->product = $this->model("product");
+
+			$this->view("product/update_prd",[
+
+			"type1"=>$this->product->get_prd_by_id(),
+			],[
+
+				"type"=>$this->product->get_category(),
+				]);
+		}
 
 		public function update_product(){
             $this->product = $this->model("product");
 
 			$this->view("product/update_prd",[
 
-			"type"=>$this->product->get_category(),
-			], ["type1"=>$this->product->update()]);
+			"type"=>$this->product->update()]);
         }
 
 		public function list_categories(){
@@ -80,7 +90,14 @@
 			"type"=>$this->product->get_category(),
 			]);
         }
+		public function get_category_by_id(){
+			$this->categories = $this->model("categories");
 
+			$this->view("categories/update_category",[
+
+			"type"=>$this->categories->get_cate_by_id(),
+			]);
+		}
 		public function update_category(){
             $this->categories = $this->model("categories");
 

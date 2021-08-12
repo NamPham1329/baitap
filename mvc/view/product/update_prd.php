@@ -77,12 +77,12 @@ a {
 </head>
 <body>
 <div class="container">
-<form method="POST" action="" enctype="multipart/form-data">
+<form method="POST" action = "/baitap/home/update_product" enctype="multipart/form-data">
     <h1>UPDATE PRODUCT</h1>
     <hr>
     <label for="id"><b>Product ID:</b></label>
     <input type="text" name="id" value="<?php
-            foreach ($data1 as $item){
+            foreach ($data as $item){
                 foreach ($item as $item1)
                 echo $item1["id"];
             }
@@ -90,7 +90,7 @@ a {
 
     <label for="name"><b>Product Name:</b></label>
     <input type="text" placeholder="Enter Name" name="name" value="<?php
-            foreach ($data1 as $item){
+            foreach ($data as $item){
                 foreach ($item as $item1)
                 echo $item1["prd_name"];
             }
@@ -98,7 +98,7 @@ a {
 
     <label for="price"><b>Price</b></label>
     <input type="text" placeholder="Enter Price" name="price" value="<?php
-            foreach ($data1 as $item){
+            foreach ($data as $item){
                 foreach ($item as $item1)
                 echo $item1["price"];
             }
@@ -110,7 +110,7 @@ a {
             
     <label for="detail"><b>Detail</b></label>
     <input type="text" placeholder="Enter Detail Product" name="detail" value="<?php
-            foreach ($data1 as $item){
+            foreach ($data as $item){
                 foreach ($item as $item1)
                 echo $item1["prd_detail"];
             }
@@ -118,7 +118,7 @@ a {
     <label for="category_id"><b>Category ID:</b></label>
     <select name="category_id">
     <?php
-        foreach ($data as $item){
+        foreach ($data1 as $item){
           foreach ($item as $item1)
           echo "<option value=".$item1['id'].">"
               .$item1["cate_name"].
@@ -136,4 +136,4 @@ a {
 </form>
 </div>
 </body>
-</html> 
+</html>

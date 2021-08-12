@@ -43,6 +43,9 @@
 			background-color: #f0ad4e;
 			border-color: #eea236;
 		}
+		.back{
+			text-align: center;
+		}
 	</style>
 </head> 
 <body>
@@ -82,15 +85,11 @@
 				<td><?php echo $row["cate_name"]; ?></td>
                 <td><?php echo $row["slug"]; ?></td>
 				<td class = "form">
-					<!-- <form method="GET">
-						<a href='/baitap/home/update_category/id=<?php echo $row["id"]?>' class='btn btn-warning left-margin'>
+					<form method="GET">
+						<a href='/baitap/home/get_category_by_id/id=<?php echo $row["id"]?>' class='btn btn-warning left-margin'>
 							Edit 	
 						</a>
-					</form> -->
-					<form method="POST" action="/baitap/home/update_category">
-						<button class='btn btn-warning left-margin' type="submit" name="update" value="<?php echo $row['id']?>">Edit</button>	
 					</form>
-
 					<form method="POST" action="/baitap/home/delete_category" onsubmit = "return deleteItem();">
 						<button class='btn btn-warning left-margin' type="submit" name="delete" value="<?php echo $row['id']?>">Delete</button>
       				</form>

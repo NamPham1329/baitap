@@ -77,7 +77,7 @@ a {
 </head>
 <body>
 
-<form method="POST">
+<form method="POST" action = "/baitap/home/update_category">
   <div class="container">
     <h1>UPDATE CATEGORIES</h1>
     <hr>

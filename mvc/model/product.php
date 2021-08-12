@@ -51,11 +51,12 @@ class product extends DB{
         }
         return $data;
     } 
-    
-    public function update(){
-        if(!empty($_POST['update'])){
-            $id = $_POST['update'];
-            $sql1 = "select * from product where id = $id";
+    public function get_prd_by_id(){
+        if(!empty($_GET['url'])){
+            $GET = (explode("/",$_GET['url']));
+                            $id = (explode("=",$GET[2]));
+                            $get_id=($id[1]);
+                            $sql1 = "select * from product where id = $get_id";
             $result = mysqli_query($this->con, $sql1);
             $data1 = [];
             while (($row1 = mysqli_fetch_array($result, 1)) != null) {
@@ -63,6 +64,8 @@ class product extends DB{
             }
             return $data1;
         }
+    }
+    public function update(){
 
         if (!empty($_POST['update_prd']))
 		    {
@@ -82,7 +85,7 @@ class product extends DB{
 				}
                 $sql = "UPDATE product SET prd_name = '$name', price = '$price', prd_image = '$anh', prd_detail = '$detail', category_id = '$cate_id' WHERE id=$id_prd";
 				mysqli_query($this->con,$sql);
-                header('Location: list_prd'); 
+                header('Location: list_prd');    
 			}
     }
     public function get_prd_in_cate(){

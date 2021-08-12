@@ -8,6 +8,9 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 	<link href="../public/frontend/css/main.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<style>
 		.form{
 			display: flex;
@@ -34,6 +37,12 @@
             border: 1px solid;
             margin-top: 5%;
         }
+		.back{
+			text-align: center;
+		}
+		.header button{
+			margin-left: 80%;
+		}
 	</style>
 </head> 
 <body>
@@ -49,6 +58,9 @@
 						<a class="nav-link" href="/baitap/home/list_categories">CATEGORY</a>
 					</li>
 				</ul>
+				<form method="POST" action="/baitap/home/logout">
+						<button class='btn btn-warning left-margin' type="submit" name="update" value="<?php echo $_SESSION['users']['email']?>">Logout</button>	
+				</form>
 			</div>
 		</nav>
 	</div>

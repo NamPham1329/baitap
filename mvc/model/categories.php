@@ -32,12 +32,12 @@
                 echo "Success";
             }
         }
-
-        public function update_cate(){
-            
-            if(!empty($_POST['update'])){
-                $id = $_POST['update'];
-                $sql = "select * from categories where id = $id";
+        public function get_cate_by_id(){
+            if(!empty($_GET['url'])){
+                $GET = (explode("/",$_GET['url']));
+	                            $id = (explode("=",$GET[2]));
+	                            $get_id=($id[1]);
+                                $sql = "select * from categories where id = $get_id";
                 $result = mysqli_query($this->con, $sql);
                 $data = [];
                 while (($row = mysqli_fetch_array($result, 1)) != null) {
@@ -45,23 +45,12 @@
                 }
                 return $data;
             }
-            // if(!empty($_GET['url'])){
-            //     $GET = (explode("/",$_GET['url']));
-	        //                     $id = (explode("=",$GET[2]));
-	        //                     $get_id=($id[1]);
-            //                     $sql = "select * from categories where id = $get_id";
-            //     $result = mysqli_query($this->con, $sql);
-            //     $data = [];
-            //     while (($row = mysqli_fetch_array($result, 1)) != null) {
-            //     $data[] = $row;
-            //     }
-            //     return $data;
-                
-            // }
+        }
+        public function update_cate(){
             
             if (!empty($_POST['update_cate']))
                 {
-                
+                unset($_GET["url"]);
                 $id_cate = $_POST['id']; 
                 $name = $_POST['cate_name'];
                 $slug = $_POST['slug']; 

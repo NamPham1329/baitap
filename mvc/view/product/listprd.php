@@ -14,6 +14,10 @@
 		.form{
 			display: flex;
 		}
+		.form form{
+			margin-right: 5px;
+			
+		}
 		button{
 			margin-right: 5px;
 		}
@@ -36,6 +40,9 @@
 			color: #000;
 			background-color: #f0ad4e;
 			border-color: #eea236;
+		}
+		.back{
+			text-align: center;
 		}
 	</style>
 </head> 
@@ -89,10 +96,11 @@
 				<td><?php echo $row["prd_detail"]; ?></td>
 				<td><?php echo $row["category_id"]; ?></td>
 				<td class = "form">
-					<form method="POST" action="/baitap/home/update_product">
-						<button class='btn btn-warning left-margin' type="submit" name="update" value="<?php echo $row['id']?>">Edit</button>	
-					</form>
-
+					<form method="GET">
+						<a href='/baitap/home/get_product_by_id/id=<?php echo $row["id"]?>' class='btn btn-warning left-margin'>
+							Edit 	
+						</a>
+		  			</form>
 					<form method="POST" action="/baitap/home/delete" onsubmit = "return deleteItem();">
 						<button class='btn btn-warning left-margin' type="submit" name="delete" value="<?php echo $row['id']?>">Delete</button>
       				</form>

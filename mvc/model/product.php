@@ -38,6 +38,7 @@ class product extends DB{
             $sql =  "delete from product where id= $id";
             return mysqli_query($this->con,$sql);
             echo "Success";
+            header("Location:list_prd");
         }
     }
     

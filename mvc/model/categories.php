@@ -11,9 +11,9 @@
                 if (!empty($name) && !empty($slug)){
                     $sql = "INSERT INTO categories(id, cate_name, slug) VALUES (NULL, '$name', '$slug')";
                     mysqli_query($this->con,$sql);
-
+                    header('Location: list_categories'); 
                 } else {
-                    echo "Fail";
+                    $msg = "Please fill out the information!";
                 }
             }   
 

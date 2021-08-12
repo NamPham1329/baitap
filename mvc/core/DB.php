@@ -11,7 +11,6 @@
 		function __construct(){
 
 			$this->con = mysqli_connect($this->server,$this->username,$this->password,$this->dbName);
-			// mysqli_select_db($this->con,$this->dbName);
 			mysqli_query($this->con,"SET NAMES 'utf8");
 		}
 	

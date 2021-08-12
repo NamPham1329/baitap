@@ -38,8 +38,7 @@
         }
 
 		public function create_category(){
-            $this->categories = $this->model("categories");
-
+            $this->categories =$this->model("categories");
 			$this->view("categories/insert_cate",[
 
 			"type"=>$this->categories->insert_cate(),

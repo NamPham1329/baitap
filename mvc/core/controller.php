@@ -2,7 +2,7 @@
 	
 	class controller {
 
-		public function model($model){
+		public function model($model, $msg = ""){
 			require_once "./mvc/model/$model.php";
 			return new $model;
 		}

@@ -69,7 +69,6 @@ a {
 <form method="POST">
   <div class="container">
     <h1>Register</h1>
-    <p>Please fill in this form to create an account.</p>
     <hr>
 
     <label for="email"><b>Email</b></label>
@@ -81,7 +80,9 @@ a {
     <label for="psw-repeat"><b>Repeat Password</b></label>
     <input type="password" placeholder="Repeat Password" name="confirm_pwd" id="psw-repeat" required>
     <hr>
-
+    <?php
+    print_r($GLOBALS['msg']);
+?>
     <button type="submit" class="registerbtn">Register</button>
   </div>
   
@@ -92,3 +93,4 @@ a {
 
 </body>
 </html>
+

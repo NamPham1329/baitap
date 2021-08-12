@@ -83,7 +83,7 @@ a {
     <label for="slug"><b>Slug</b></label>
     <input type="text" placeholder="Enter Slug" name="slug">
     <hr>
-    <button type="submit" class="slug">CREATE</button>
+    <button type="submit" class="slug" name="create">CREATE</button>
     <div class="back" class='btn btn-warning left-margin'>
 		  <a href="/baitap/home/list_categories">List Categories</a>
     </div>

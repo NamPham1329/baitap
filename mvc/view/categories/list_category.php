@@ -62,7 +62,7 @@
 					</li>
 				</ul>
 				<form method="POST" action="/baitap/home/logout">
-						<button class='btn btn-warning left-margin' type="submit" name="update" value="<?php echo $_SESSION['users']['email']?>">Logout</button>	
+						<button class='btn btn-warning left-margin' type="submit" name="logout" value="<?php echo $_SESSION['users']['email']?>">Logout</button>	
 				</form>
 			</div>
 		</nav>

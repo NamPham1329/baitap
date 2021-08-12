@@ -1,7 +1,3 @@
-<?php
-    echo "Bạn có chắc muốn đăng xuất";
-    unset($_SESSION['users']);
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,8 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <a href = "/baitap/home/login">
-        OK
-    </a>   
+    <script>
+        alert("Do you want to sign out?");
+            if(alert){
+        window.location="/baitap/home/login";
+} 
+    </script> 
 </body>
 </html>

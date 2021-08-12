@@ -1,5 +1,6 @@
 <?php
 session_start(); 
+$GLOBALS['msg']="";
 class user extends DB{
     public function register(){
         if (!empty($_POST)) {
@@ -8,12 +9,16 @@ class user extends DB{
             $confirmPwd = $_POST['confirm_pwd'];
 
             if (!empty($email) && $password == $confirmPwd) {
-                $password = md5($password);
-                $sql = "INSERT INTO users(id, email, password) VALUES (NULL, '$email', '$password')";
-				mysqli_query($this->con,$sql);
+                if (filter_var($email, FILTER_VALIDATE_EMAIL)){    
+                    $password = md5($password);
+                    $sql = "INSERT INTO users(id, email, password) VALUES (NULL, '$email', '$password')";
+				    mysqli_query($this->con,$sql);
+                } else {
+                    $GLOBALS['msg']="Email is not a valid email address";
+                }
             } else {
-                echo "Register failed";
-            }
+                $GLOBALS['msg']="Please fill in this form to create an account.";
+            } 
         }
     }
     public function login(){
@@ -43,7 +48,6 @@ class user extends DB{
     public function logout(){
         if(!empty($_POST['logout'])){
             unset($_SESSION['users']);
-            header('Location: /baitap/home/login');
         }
     }
     

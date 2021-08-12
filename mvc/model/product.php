@@ -11,33 +11,42 @@ class product extends DB{
         
     }
     public function insert_product(){
-        if (!empty($_POST['add_prd']))
-		{
-			$name = $_POST['name'];
-			$price = $_POST['price']; 
-			$detail = $_POST['detail'];
-            $cate_id = $_POST['category_id'];
-			$anh = $_FILES["image"]['name'];
-			if($anh != null)
-				{ 
-				$path = "./public/upload/";
-				$tmp_name = $_FILES['image']['tmp_name'];
-				$anh = $_FILES['image']['name'];
+        if($_SESSION['users']['email']=="admin@gmail.com"){
+            if (!empty($_POST['add_prd'])){
+                $name = $_POST['name'];
+                $price = $_POST['price']; 
+                $detail = $_POST['detail'];
+                $cate_id = $_POST['category_id'];
+                $anh = $_FILES["image"]['name'];
+                if($anh != null)
+                    { 
+                    $path = "./public/upload/";
+                    $tmp_name = $_FILES['image']['tmp_name'];
+                    $anh = $_FILES['image']['name'];
 
-				move_uploaded_file($tmp_name,$path.$anh);
-					$sql = "insert into product(id, prd_name, price, prd_image, prd_detail, category_id) VALUES (NULL, '$name', '$price', '$anh', '$detail','$cate_id')";
-					mysqli_query($this->con,$sql);
-                    echo "Success";
-				}
-                header('Location: list_prd'); 
-			}
+                    move_uploaded_file($tmp_name,$path.$anh);
+                        $sql = "insert into product(id, prd_name, price, prd_image, prd_detail, category_id) VALUES (NULL, '$name', '$price', '$anh', '$detail','$cate_id')";
+                        mysqli_query($this->con,$sql);
+                        echo "Success";
+                    }
+                    header('Location: list_prd'); 
+                }
+        } else {
+            header("Location:list_prd");
+        }
+        
+            
 	}
     public function delete(){
-        if(!empty($_POST["delete"])){
-            $id = $_POST["delete"];
-            $sql =  "delete from product where id= $id";
-            return mysqli_query($this->con,$sql);
-            echo "Success";
+        if($_SESSION['users']['email']=="admin@gmail.com"){
+            if(!empty($_POST["delete"])){
+                $id = $_POST["delete"];
+                $sql =  "delete from product where id= $id";
+                return mysqli_query($this->con,$sql);
+                echo "Success";
+                header("Location:list_prd");
+            }
+        } else {
             header("Location:list_prd");
         }
     }
@@ -67,27 +76,31 @@ class product extends DB{
         }
     }
     public function update(){
+        if($_SESSION['users']['email']=="admin@gmail.com"){
 
-        if (!empty($_POST['update_prd']))
-		    {
-            $id_prd = $_POST['id']; 
-			$name = $_POST['name'];
-			$price = $_POST['price']; 
-			$detail = $_POST['detail'];
-            $cate_id = $_POST['category_id'];
-			$anh = $_FILES["image"]['name'];
-			if($anh != null)
-				{ 
-				$path = "./public/upload/";
-				$tmp_name = $_FILES['image']['tmp_name'];
-				$anh = $_FILES['image']['name'];
+            if (!empty($_POST['update_prd']))
+                {
+                $id_prd = $_POST['id']; 
+                $name = $_POST['name'];
+                $price = $_POST['price']; 
+                $detail = $_POST['detail'];
+                $cate_id = $_POST['category_id'];
+                $anh = $_FILES["image"]['name'];
+                if($anh != null)
+                    { 
+                    $path = "./public/upload/";
+                    $tmp_name = $_FILES['image']['tmp_name'];
+                    $anh = $_FILES['image']['name'];
 
-				move_uploaded_file($tmp_name,$path.$anh);
-				}
-                $sql = "UPDATE product SET prd_name = '$name', price = '$price', prd_image = '$anh', prd_detail = '$detail', category_id = '$cate_id' WHERE id=$id_prd";
-				mysqli_query($this->con,$sql);
-                header('Location: list_prd');    
-			}
+                    move_uploaded_file($tmp_name,$path.$anh);
+                    }
+                    $sql = "UPDATE product SET prd_name = '$name', price = '$price', prd_image = '$anh', prd_detail = '$detail', category_id = '$cate_id' WHERE id=$id_prd";
+                    mysqli_query($this->con,$sql);
+                    header('Location: list_prd');    
+                }
+        } else {
+            header("Location: list_prd");
+        }
     }
     public function get_prd_in_cate(){
         if(!empty($_POST['view_prd']))

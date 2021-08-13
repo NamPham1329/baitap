@@ -85,7 +85,7 @@ a {
     <hr>
     <button type="submit" class="slug" name="create">CREATE</button>
     <div class="back" class='btn btn-warning left-margin'>
-		  <a href="/baitap/home/list_categories">List Categories</a>
+		  <a href="/project/home/list_categories">List Categories</a>
     </div>
   </div>
 </form>

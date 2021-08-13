@@ -104,7 +104,7 @@ a {
     <button type="submit" class='add_prd btn btn-warning left-margin' name="add_prd" value="save">Create</button>
     <br>
     <div class="back" class='btn btn-warning left-margin'>
-		  <a href="/baitap/home/list_prd">List Product</a>
+		  <a href="/project/home/list_prd">List Product</a>
     </div>
 </form>
 </div>

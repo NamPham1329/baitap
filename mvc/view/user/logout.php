@@ -10,7 +10,7 @@
     <script>
         alert("Do you want to sign out?");
             if(alert){
-        window.location="/baitap/home/login";
+        window.location="/project/home/login";
 } 
     </script> 
 </body>

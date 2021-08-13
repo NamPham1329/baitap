@@ -71,7 +71,7 @@ a {
 </head>
 <body>
 
-<form method="POST" action = "/baitap/home/update_category">
+<form method="POST" action = "/project/home/update_category">
   <div class="container">
     <h1>UPDATE CATEGORIES</h1>
     <hr>
@@ -102,7 +102,7 @@ a {
     <hr>
     <button type="submit" class="slug" name = "update_cate" value= "update">UPDATE</button>
     <div class="back" class='btn btn-warning left-margin'>
-		  <a href="/baitap/home/list_categories">List Categories</a>
+		  <a href="/project/home/list_categories">List Categories</a>
     </div>
   </div>
 </form>

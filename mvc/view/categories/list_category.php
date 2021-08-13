@@ -55,13 +55,13 @@
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav">
 					<li class="product">
-						<a class="nav-link" href="/baitap/home/list_prd">PRODUCT</a>
+						<a class="nav-link" href="/project/home/list_prd">PRODUCT</a>
 					</li>
 					<li class="category">
-						<a class="nav-link" href="/baitap/home/list_categories">CATEGORY</a>
+						<a class="nav-link" href="/project/home/list_categories">CATEGORY</a>
 					</li>
 				</ul>
-				<form method="POST" action="/baitap/home/logout">
+				<form method="POST" action="/project/home/logout">
 						<button class='btn btn-warning left-margin' type="submit" name="logout" value="<?php echo $_SESSION['users']['email']?>">Logout</button>	
 				</form>
 			</div>
@@ -86,16 +86,16 @@
                 <td><?php echo $row["slug"]; ?></td>
 				<td class = "form">
 					<form method="GET">
-						<a href='/baitap/home/get_category_by_id/id=<?php echo $row["id"]?>' class='btn btn-warning left-margin'>
+						<a href='/project/home/get_category_by_id/id=<?php echo $row["id"]?>' class='btn btn-warning left-margin'>
 							Edit 	
 						</a>
 					</form>
 					
-					<form method="POST" action="/baitap/home/delete_category">
+					<form method="POST" action="/project/home/delete_category">
 						<button class='btn btn-warning left-margin' type="submit" name="delete" value="<?php echo $row['id']?>">Delete</button>
       				</form>
 
-					<form method="POST" action="/baitap/home/view_product">
+					<form method="POST" action="/project/home/view_product">
 						<button class='btn btn-warning left-margin' type="submit" name="view_prd" value="<?php echo $row['id']?>">VIEW PRODUCT</button>	
 					</form>
 				</td>
@@ -106,7 +106,7 @@
   </tbody>
 </table>
 <div class="back">
-		<a href="/baitap/home/create_category" class="btn btn-warning left-margin">New</a>
+		<a href="/project/home/create_category" class="btn btn-warning left-margin">New</a>
 </div>
 </body>
 </html>

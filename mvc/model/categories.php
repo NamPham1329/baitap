@@ -69,7 +69,7 @@
                 $slug = $_POST['slug']; 
                 $sql = "UPDATE categories SET cate_name = '$name', slug = '$slug' WHERE id=$id_cate";
                     mysqli_query($this->con,$sql);
-                    header('Location: /baitap/home/list_categories'); 
+                    header('Location: /project/home/list_categories'); 
                 }
                 unset($_GET['url']);
             } else {

@@ -10,9 +10,9 @@
 <body>
 <script>
 
-alert("Are you sure to delete this item?");
+alert("Delete successfully?");
 if(alert){
-    window.location="/baitap/home/list_categories";
+    window.location="/project/home/list_categories";
 }
 
 </script>

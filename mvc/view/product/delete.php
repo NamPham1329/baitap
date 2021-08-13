@@ -11,7 +11,7 @@
 
 alert("Are you sure to delete this item?");
 if(alert){
-    window.location="/baitap/home/list_prd";
+    window.location="/project/home/list_prd";
 }
 
 </script>

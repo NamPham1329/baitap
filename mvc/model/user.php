@@ -37,7 +37,7 @@ class user extends DB{
                 }
                 if (count($data) > 0) {
                     $_SESSION['users'] = $data[0];
-                    header('Location: /baitap/home/list_prd');
+                    header('Location: /project/home/list_prd');
                     die();
                 }
             } else {
@@ -47,7 +47,7 @@ class user extends DB{
     }
     public function logout(){
         if(!empty($_POST['logout'])){
-            unset($_SESSION['users']);
+            session_destroy();
         }
     }
     

@@ -87,7 +87,7 @@ a {
   </div>
   
   <div class="container signin">
-    <p>Already have an account? <a href="/baitap/home/login">Sign in</a>.</p>
+    <p>Already have an account? <a href="/project/home/login">Sign in</a>.</p>
   </div>
 </form>
 

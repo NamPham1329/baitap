@@ -52,13 +52,13 @@
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav">
 					<li class="product">
-						<a class="nav-link" href="/baitap/home/list_prd">PRODUCT</a>
+						<a class="nav-link" href="/project/home/list_prd">PRODUCT</a>
 					</li>
 					<li class="category">
-						<a class="nav-link" href="/baitap/home/list_categories">CATEGORY</a>
+						<a class="nav-link" href="/project/home/list_categories">CATEGORY</a>
 					</li>
 				</ul>
-				<form method="POST" action="/baitap/home/logout">
+				<form method="POST" action="/project/home/logout">
 						<button class='btn btn-warning left-margin' type="submit" name="logout" value="<?php echo $_SESSION['users']['email']?>">Logout</button>	
 				</form>
 			</div>
@@ -91,7 +91,7 @@
   </tbody>
 </table>
 <div class="back">
-		<a href="/baitap/home/list_categories" class="btn btn-warning left-margin">BACK</a>
+		<a href="/project/home/list_categories" class="btn btn-warning left-margin">BACK</a>
 </div>
 <script type="text/javascript">
 	function deleteItem() {

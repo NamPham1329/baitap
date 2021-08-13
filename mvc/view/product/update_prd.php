@@ -71,7 +71,7 @@ a {
 </head>
 <body>
 <div class="container">
-<form method="POST" action = "/baitap/home/update_product" enctype="multipart/form-data">
+<form method="POST" action = "/project/home/update_product" enctype="multipart/form-data">
     <h1>UPDATE PRODUCT</h1>
     <hr>
     <label for="id"><b>Product ID:</b></label>
@@ -125,7 +125,7 @@ a {
     <button type="submit" class='update_prd btn btn-warning left-margin' name="update_prd" value="update">Update</button>
     <br>
     <div class="back">
-		<a href="/baitap/home/list_prd">List Product</a>
+		<a href="/project/home/list_prd">List Product</a>
     </div>
 </form>
 </div>

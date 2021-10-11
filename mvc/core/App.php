@@ -1,7 +1,7 @@
 <?php
 class App{
     protected $controller = 'home';
-    protected $action = 'register';
+    protected $action = 'home';
     protected $param = [];
 
     function __construct(){
@@ -19,7 +19,7 @@ class App{
             }
             unset($arr[1]);
         }
-
+            
         $this->param = $arr?array_values($arr):[];
         call_user_func_array([$this->controller,$this->action], $this->param);
     }

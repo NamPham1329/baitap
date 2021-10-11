@@ -1,126 +1,98 @@
 <?php 
-	class home extends controller{
-        public function register(){
-            $this->user = $this->model("user");
-
-			$this->view("user/register",[
-
-			"type"=>$this->user->register(),
-			]);
-        }
-		public function list_prd(){
-            $this->product = $this->model("product");
-
-			$this->view("product/listprd",[
-
-			"type"=>$this->product->get_product(),
-			]);
-        }
-
-
-		public function login(){
-
-            $this->user = $this->model("user");
-
-			$this->view("user/login",[
-
-			"type"=>$this->user->login(),
-			]);
-        }
-
-		public function logout(){
-            $this->user = $this->model("user");
-
-			$this->view("user/logout",[
-
-			"type"=>$this->user->logout(),
-			]);
-        }
-
-		public function create_category(){
-            $this->categories =$this->model("categories");
-			$this->view("categories/insert_cate",[
-
-			"type"=>$this->categories->insert_cate(),
-			]);
-        }
-		public function create_product(){
-            $this->product = $this->model("product");
-
-			$this->view("product/insert_prd",[
-
-			"type"=>$this->product->get_category(),
-			], ["type1"=>$this->product->insert_product()]);
-        }
-		
-		public function delete(){
-            $this->product = $this->model("product");
-
-			$this->view("product/delete",[
-
-			"type"=>$this->product->delete(),
-			]);
-        }
-		public function get_product_by_id(){
-			$this->product = $this->model("product");
-
-			$this->view("product/update_prd",[
-
-			"type1"=>$this->product->get_prd_by_id(),
-			],[
-
-				"type"=>$this->product->get_category(),
-				]);
+	
+	class Home extends controller{
+		protected $controller;
+		function __construct()
+		{
+			$this->controller = new controller();
 		}
-
-		public function update_product(){
-            $this->product = $this->model("product");
-
-			$this->view("product/update_prd",[
-
-			"type"=>$this->product->update()]);
+		public function home()
+		{
+			$this->controller->require("product", "homepage/home");
         }
-
-		public function list_categories(){
-            $this->product = $this->model("categories");
-
-			$this->view("categories/list_category",[
-
-			"type"=>$this->product->get_category(),
-			]);
+		public function product()
+		{
+			$this->controller->require("product", "product/listprd");
         }
-		public function get_category_by_id(){
-			$this->categories = $this->model("categories");
-
-			$this->view("categories/update_category",[
-
-			"type"=>$this->categories->get_cate_by_id(),
-			]);
+		public function add_product()
+		{
+			$this->controller->require("product", "product/addProduct");
+        }
+		public function update_product()
+		{
+			$this->controller->require("product", "product/update");
+        }
+		public function category()
+		{
+            $this->controller->require("categories", "category/list");
+        }
+		public function add_category()
+		{
+            $this->controller->require("categories", "category/add");
+        }
+		public function update_category()
+		{
+            $this->controller->require("categories", "category/update");
+        }
+		public function register()
+		{
+            $this->controller->require("users", "user/register");
+        }
+		public function login()
+		{
+            $this->controller->require("users", "user/login");
+        }
+		public function logout()
+		{
+            $this->controller->require("users", "homepage/home");
+        }
+		public function user()
+		{
+            $this->controller->require("users", "user/list");
+        }
+		public function update_user()
+		{
+            $this->controller->require("users", "user/update");
+        }
+		public function role()
+		{
+            $this->controller->require("role", "role/list");
+        }
+		public function add_role()
+		{
+            $this->controller->require("role", "role/add");
+        }
+		public function update_role()
+		{
+            $this->controller->require("role", "role/update");
+        }
+		public function cart()
+		{
+            $this->controller->require("cart", "cart/list");
+        }
+		public function list_order()
+		{
+			$this->controller->require("order","cart/index");
 		}
-		public function update_category(){
-            $this->categories = $this->model("categories");
-
-			$this->view("categories/update_category",[
-
-			"type"=>$this->categories->update_cate(),
-			]);
+		public function order()
+		{
+            $this->controller->require("order", "order/list");
         }
-		public function delete_category(){
-            $this->categories = $this->model("categories");
-
-			$this->view("categories/delete_category",[
-
-			"type"=>$this->categories->delete_cate(),
-			]);
+		public function product_detail()
+		{
+            $this->controller->require("product", "product/product_detail");
+        }	
+		public function addToCart()
+		{
+            $this->controller->require("order", "product/product_detail");
         }
-
-		public function view_product(){
-            $this->product = $this->model("product");
-
-			$this->view("categories/view_prd_in_cate",[
-
-			"type"=>$this->product->get_prd_in_cate(),
-			]);
+		public function NotFound()
+		{
+            $this->controller->require("product", "404_error_page");
+        }
+		public function checkout()
+		{
+            $this->controller->require("checkout", "checkout");
         }
 	}
 

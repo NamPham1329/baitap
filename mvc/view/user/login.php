@@ -1,4 +1,14 @@
-
+<?php
+if(!empty($_SESSION['users']['role_id']))
+{
+  if($_SESSION['users']['role_id']==='1')
+  {
+      header('Location: /project/home/product');
+  } else {
+    header('Location: /project/home/');
+  }
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -75,17 +85,17 @@ span.psw {
 
 <h2>Login Form</h2>
 
-<form  method="post">
+<form  method="post" action="">
   <div class="container">
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" required>
+    <label for="username"><b>Username</b></label>
+    <input type="text" placeholder="Enter username" name="username" required>
 
     <label for="password"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="password" required>
         
-    <button type="submit">Login</button>
+    <button type="submit" name="login" value="login">Login</button>
   </div>
-  <span class="psw"><a href="register">Do not have account?</a></span>
+  <span class="psw"><a href="/project/home/register">Do not have account?</a></span>
 </form>
 
 </body>

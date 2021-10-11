@@ -1,19 +1,15 @@
-<?php 
+<?php
+define('HOST', 'localhost');
+define('USERNAME', 'root');
+define('PASSWORD', '');
+define('DATABASE', 'webdemo');
 
-	class DB {
-
-		public $con;
-		protected $server = "localhost";
-		protected $username = "root";
-		protected $password = "";
-		protected $dbName = "php_train";
-
-		function __construct(){
-
-			$this->con = mysqli_connect($this->server,$this->username,$this->password,$this->dbName);
-			mysqli_query($this->con,"SET NAMES 'utf8");
-		}
-	
+class DB{
+	protected $con;
+	function __construct()
+	{
+		$this->con = mysqli_connect(HOST, USERNAME, PASSWORD, DATABASE);
 	}
-
- ?>
+}
+$db = new DB();
+?>
